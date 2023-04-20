@@ -29,9 +29,13 @@ def vectorize_text(df):
 
 def get_recommend(title, cosine_sim, df, num_rec):
     indices = pd.Series(df.index, index=df['title']).drop_duplicates()
-    movie_index = indices["Deadpool"]
+    movie_index = indices[title]
     similarity_scores = pd.DataFrame(
         cosine_sim[movie_index], columns=["score"])
+    movie_indices = similarity_scores.sort_values(
+        "score", ascending=False)[1:11].index
+    Recommended_Movies = df['title'].iloc[movie_indices]
+    return Recommended_Movies
 
 
 def main():
@@ -49,18 +53,21 @@ def main():
 
     elif choice == "Recommend":
         st.subheader('Recommended Movies')
+        searchterm = st.text_input('Last Movie You Watched')
+        num_rec = st.sidebar.number_input("Number", 4, 30)
 
         tfidf = TfidfVectorizer(stop_words="english")
         tfidf_matrix = tfidf.fit_transform(df['overview'])
         cosine_sim = cosine_similarity(tfidf_matrix,
                                        tfidf_matrix)
 
-        searchterm = st.text_input('Last Movie You Watched')
-        num_rec = st.sidebar.number_input("Number", 4, 30)
-
         if st.button("Recommend"):
             if searchterm is not None:
-                result = get_recommend(searchterm, cosine_sim, df, num_rec)
+                try:
+                    result = get_recommend(searchterm, cosine_sim, df, num_rec)
+                except:
+                    result = "Not Found"
+
                 st.write(result)
 
     else:

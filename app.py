@@ -40,6 +40,7 @@ def main():
 
     menu = ["Home", "Recommend", "Analysis"]
     choice = st.sidebar.selectbox("Menu", menu)
+
     df = load_data("/Users/anilfurkanembel/Desktop/CleanedData.csv")
 
     if choice == "Home":
@@ -48,11 +49,19 @@ def main():
 
     elif choice == "Recommend":
         st.subheader('Recommended Movies')
+
+        tfidf = TfidfVectorizer(stop_words="english")
+        tfidf_matrix = tfidf.fit_transform(df['overview'])
+        cosine_sim = cosine_similarity(tfidf_matrix,
+                                       tfidf_matrix)
+
         searchterm = st.text_input('Last Movie You Watched')
+        num_rec = st.sidebar.number_input("Number", 4, 30)
 
         if st.button("Recommend"):
             if searchterm is not None:
-                pass
+                result = get_recommend(searchterm, cosine_sim, df, num_rec)
+                st.write(result)
 
     else:
         st.subheader('Analysis')

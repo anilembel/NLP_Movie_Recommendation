@@ -24,17 +24,33 @@ def get_recommendations(df, searchterm, num_rec):
     movie_id = df.loc[df['title'] == searchterm]['id'].values[0]
 
     # movie_id ile verilen filmin benzer filmlerini getirin
-    sim_movies = ['sim_movie_{}'.format(i) for i in range(1, 6)]
+    sim_movies = ['sim_movie_{}'.format(i) for i in range(1, num_rec+1)]
     sim_movies = df.loc[df['id'] == movie_id, sim_movies].values[0]
 
     # benzer filmlerle ilgili bilgileri bir liste içinde toplayın
     rec_movies = []
-    for movie in sim_movies:
-        movie_info = df.loc[df['id'] == movie, 'title'].values[0]
-        rec_movies.append(movie_info)
+    for movie_id in sim_movies:
+        movie_info = df.loc[df['id'] == movie_id]
+        vote_average = movie_info['vote_average'].values[0]
+        color = '#FF5733' if vote_average <= 4 else '#F5DA81' if vote_average <= 7 else '#32CD32'
+        rec_movie = {'Title': movie_info['title'].values[0],
+                     'Language': movie_info['Language'].values[0],
+                     'Vote Average': f'{vote_average:.1f}'}
+        rec_movies.append(rec_movie)
 
-    # istenen sayıda öneri listesini döndürün
-    return rec_movies[:num_rec]
+    # Create a pandas dataframe to display the recommendations in a table
+    rec_movies_df = pd.DataFrame(rec_movies)
+
+    # Display the recommendations table using Streamlit
+    st.write("""
+    ## Recommended Movies
+    """)
+    i = 1
+    for rec_movie in rec_movies:
+        st.title(f"""{i}-{rec_movie['Title']}""")
+        i = i + 1
+        st.subheader(f"""Language: {rec_movie['Language']}""")
+        st.text(f"""{rec_movie['Vote Average']}""")
 
 
 def main():
@@ -49,7 +65,6 @@ def main():
 
     if choice == "Home":
         st.subheader("Home")
-        st.dataframe(df.head(10))
 
     elif choice == "Recommend":
         st.subheader('Recommended Movies')

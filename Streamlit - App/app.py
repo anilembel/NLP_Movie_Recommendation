@@ -2,8 +2,8 @@
 import streamlit as st
 import streamlit.components.v1 as stc
 import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+from streamlit_lottie import st_lottie
+import requests
 
 # Load Our Dataset
 
@@ -11,6 +11,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 def load_data(data):
     df = pd.read_csv(data)
     return df
+
+# st.lottie
+
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
 
 
 # RECOMMENDATTİON
@@ -65,6 +74,9 @@ def main():
 
     if choice == "Home":
         st.subheader("Home")
+        netflix = load_lottieurl(
+            'https://assets3.lottiefiles.com/private_files/lf30_F6EtR7.json')
+        st_lottie(netflix, key='netflix')
 
     elif choice == "Recommend":
         st.subheader('Recommended Movies')

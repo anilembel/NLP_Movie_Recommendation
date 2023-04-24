@@ -61,7 +61,7 @@ def main():
     choice = st.sidebar.selectbox("Menu", menu)
 
     df = load_data(
-        "/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/..\Data\movies_with_recommendation.csv")
+        "/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Csv Files/..\Data\movies_with_recommendation.csv")
 
     if choice == "Home":
         st.subheader("Home")

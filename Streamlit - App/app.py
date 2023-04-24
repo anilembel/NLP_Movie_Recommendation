@@ -64,19 +64,24 @@ def get_recommendations(df, searchterm, num_rec):
 
 def main():
 
-    st.title("Movie Recommendation App")
+    st.write("<h1 style='font-family:Netflix Sans; color:#E50914; font-size: 38px;'>NLP Movie Recommendation Project</h1>",
+             unsafe_allow_html=True)
 
     menu = ["Home", "Recommend", "Analysis"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     df = load_data(
-        "/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Csv Files/..\Data\movies_with_recommendation.csv")
+        "//Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Csv Files/movies_with_recommendation.csv")
 
     if choice == "Home":
-        st.subheader("Home")
         netflix = load_lottieurl(
             'https://assets3.lottiefiles.com/private_files/lf30_F6EtR7.json')
         st_lottie(netflix, key='netflix')
+        st.subheader('About The Project')
+        st.write("<h3 style='font-family:Netflix Sans;  color:white; font-size: 18px;'>It is a project I prepared for my project that was given during my Becode training. In this project, Content based Film recommendation is given by using TF-IDF on NLP. You can write the last movie you watched by selecting the Recommend button from the menu on the left. If the movie is in the database, it will give you as many recommendations as you have chosen between 1-5.</h3>",
+                 unsafe_allow_html=True)
+        st.image(
+            '/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Csv Files/LKHU.png', width=120, )
 
     elif choice == "Recommend":
         st.subheader('Recommended Movies')

@@ -12,30 +12,29 @@ def load_data(data):
     df = pd.read_csv(data)
     return df
 
-# Fxn
-# Vectorize + Cosine Sim Matrix
-
-
-def vectorize_text(df):
-    tfidf = TfidfVectorizer(stop_words="english")
-
-    tfidf_matrix = tfidf.fit_transform(df['overview'])
-    cosine_sim = cosine_similarity(tfidf_matrix,
-                                   tfidf_matrix)
-    return cosine_sim
 
 # RECOMMENDATTİON
 
+def get_recommendations(df, searchterm, num_rec):
+    # searchterm ile verilen filmin title sütununda var olup olmadığını kontrol edin
+    if searchterm not in df['title'].unique():
+        return "Movie not found. Please check your spelling."
 
-def get_recommend(title, cosine_sim, df, num_rec):
-    indices = pd.Series(df.index, index=df['title']).drop_duplicates()
-    movie_index = indices[title]
-    similarity_scores = pd.DataFrame(
-        cosine_sim[movie_index], columns=["score"])
-    movie_indices = similarity_scores.sort_values(
-        "score", ascending=False)[1:11].index
-    Recommended_Movies = df['title'].iloc[movie_indices]
-    return Recommended_Movies
+    # searchterm ile verilen filmin id'sini alın
+    movie_id = df.loc[df['title'] == searchterm]['id'].values[0]
+
+    # movie_id ile verilen filmin benzer filmlerini getirin
+    sim_movies = ['sim_movie_{}'.format(i) for i in range(1, 6)]
+    sim_movies = df.loc[df['id'] == movie_id, sim_movies].values[0]
+
+    # benzer filmlerle ilgili bilgileri bir liste içinde toplayın
+    rec_movies = []
+    for movie in sim_movies:
+        movie_info = df.loc[df['id'] == movie, 'title'].values[0]
+        rec_movies.append(movie_info)
+
+    # istenen sayıda öneri listesini döndürün
+    return rec_movies[:num_rec]
 
 
 def main():
@@ -45,7 +44,8 @@ def main():
     menu = ["Home", "Recommend", "Analysis"]
     choice = st.sidebar.selectbox("Menu", menu)
 
-    df = load_data("/Users/anilfurkanembel/Desktop/CleanedData.csv")
+    df = load_data(
+        "/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/..\Data\movies_with_recommendation.csv")
 
     if choice == "Home":
         st.subheader("Home")
@@ -54,21 +54,16 @@ def main():
     elif choice == "Recommend":
         st.subheader('Recommended Movies')
         searchterm = st.text_input('Last Movie You Watched')
-        num_rec = st.sidebar.number_input("Number", 4, 30)
-
-        tfidf = TfidfVectorizer(stop_words="english")
-        tfidf_matrix = tfidf.fit_transform(df['overview'])
-        cosine_sim = cosine_similarity(tfidf_matrix,
-                                       tfidf_matrix)
+        num_rec = st.sidebar.number_input("Number", 1, 5)
 
         if st.button("Recommend"):
             if searchterm is not None:
                 try:
-                    result = get_recommend(searchterm, cosine_sim, df, num_rec)
+                    result = get_recommendations(df, searchterm, num_rec)
                 except:
                     result = "Not Found"
 
-                st.write(result)
+            st.write(result)
 
     else:
         st.subheader('Analysis')

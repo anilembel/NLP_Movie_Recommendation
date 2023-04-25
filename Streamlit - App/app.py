@@ -5,6 +5,11 @@ import pandas as pd
 from streamlit_lottie import st_lottie
 import requests
 
+
+# for make a wide
+
+st.set_page_config(page_title="Netflix", layout="wide")
+
 # Load Our Dataset
 
 
@@ -69,9 +74,12 @@ def main():
 
     menu = ["Home", "Recommend", "Analysis"]
     choice = st.sidebar.selectbox("Menu", menu)
+    st.sidebar.write('Anil Furkan EMBEL')
+    st.sidebar.image(
+        '/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Files/LKHU.png', width=280, )
 
     df = load_data(
-        "//Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Csv Files/movies_with_recommendation.csv")
+        "/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Files/movies_with_recommendation.csv")
 
     if choice == "Home":
         netflix = load_lottieurl(
@@ -81,7 +89,7 @@ def main():
         st.write("<h3 style='font-family:Netflix Sans;  color:white; font-size: 18px;'>It is a project I prepared for my project that was given during my Becode training. In this project, Content based Film recommendation is given by using TF-IDF on NLP. You can write the last movie you watched by selecting the Recommend button from the menu on the left. If the movie is in the database, it will give you as many recommendations as you have chosen between 1-5.</h3>",
                  unsafe_allow_html=True)
         st.image(
-            '/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Csv Files/LKHU.png', width=120, )
+            '/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Files/LKHU.png', width=120, )
 
     elif choice == "Recommend":
         st.subheader('Recommended Movies')
@@ -104,7 +112,7 @@ def main():
 
         # To show the dashboard on the app
 
-        stc.html(tableau_dashboard, width=1280, height=720, scrolling=True)
+        stc.html(tableau_dashboard, width=1280, height=720)
 
         # Dashboard explanations
 

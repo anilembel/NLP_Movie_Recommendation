@@ -76,7 +76,7 @@ def main():
     choice = st.sidebar.selectbox("Menu", menu)
 
     df = load_data(
-        "../Files/movies_with_recommendation.csv")
+        "./../Files/movies_with_recommendation.csv")
 
     # home page
     if choice == "Home":

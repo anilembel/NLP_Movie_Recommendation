@@ -18,14 +18,9 @@
 <h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Finally, for a movie the user watched, the system calculated similarity scores by comparing it with other movies, and the movies with the highest similarity scores were recommended assuming they had similar characteristics to the movie the user was watching.</h3>
 <h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>All of these processes have an important role in the content-based recommendation system and can be used to provide personalized recommendations to users based on their interests.</h3>
 
-<a href="https://resimlink.com/ekHb4S3s" title="ResimLink - Resim Yükle"><img src="https://r.resimlink.com/ekHb4S3s.png" title="ResimLink - Resim Yükle" alt="ResimLink - Resim Yükle"></a>
 
 <h2>Recommendations</h2>
 <h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>It gives you the recommendations of the films with the closest score between 1-5 with the Model I have installed.</h3>
-
-<a href="https://resimlink.com/8dhJ3no0ZNY" title="ResimLink - Resim Yükle"><img src="https://r.resimlink.com/8dhJ3no0ZNY.png" title="ResimLink - Resim Yükle" alt="ResimLink - Resim Yükle"></a>
-
-
 
  <h2>Analysis</h2>
  

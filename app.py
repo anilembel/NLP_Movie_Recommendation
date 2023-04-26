@@ -59,10 +59,15 @@ def get_recommendations(df, searchterm, num_rec):
     """)
     i = 1
     for rec_movie in rec_movies:
-        st.title(f"""{i}-{rec_movie['Title']}""")
+        st.image(
+            'https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png')
+        st.write(f"""<h3  style='font-family:Netflix Sans; color:Black; font-size: 24 px;'>{i}-{rec_movie['Title']}</h3>""",
+                 unsafe_allow_html=True)
+        st.write(f"""<h3 style='font-family:Netflix Sans; color:black; font-size: 18 px;'> Language: {rec_movie['Language']}</h3>""",
+                 unsafe_allow_html=True)
+        st.write(f"""<h3 style='font-family:Netflix Sans; color:red; font-size: 18 px;'> Vote: {rec_movie['Vote Average']}</h3>""",
+                 unsafe_allow_html=True)
         i = i + 1
-        st.subheader(f"""Language: {rec_movie['Language']}""")
-        st.text(f"""{rec_movie['Vote Average']}""")
 
 # main
 

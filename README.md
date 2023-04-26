@@ -7,6 +7,8 @@
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>[Link Of the App ](https://anilembel-nlp-movie-recommendation-app-21t86r.streamlit.app/)</h3>
+
 
 <h2 align="center" >About The Project</h2>
 <h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Hello I'am Anil, This is the project that my education in the field of NLP, which was given to me during the Becode Training process.</h3>
@@ -62,5 +64,4 @@ Go to the project directory
   cd YourPath/NLP_Movie_Recommendation
 ```
 
-   
-<
+ 

@@ -76,12 +76,12 @@ def main():
     choice = st.sidebar.selectbox("Menu", menu)
 
     df = load_data(
-        "/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Files/movies_with_recommendation.csv")
+        "../Files/movies_with_recommendation.csv")
 
     # home page
     if choice == "Home":
         st.sidebar.image(
-            '/Users/anilfurkanembel/Desktop/NLP_Movie_Recommendation/Files/Anılsidebar .png', width=300, )
+            '../Files/Anılsidebar .png', width=300, )
 
         netflix = load_lottieurl(
             'https://assets1.lottiefiles.com/private_files/lf30_F6EtR7.json')

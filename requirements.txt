@@ -2,3 +2,7 @@ pandas==1.5.2
 Requests==2.28.2
 streamlit==1.17.0
 streamlit_lottie==0.0.3
+pyarrow==8.0.0
+
+
+

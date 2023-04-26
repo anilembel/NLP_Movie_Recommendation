@@ -7,7 +7,7 @@
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>[Link Of the App ](https://anilembel-nlp-movie-recommendation-app-21t86r.streamlit.app/)</h3>
+<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Link Of the App : https://anilembel-nlp-movie-recommendation-app-21t86r.streamlit.app/ </h3>
 
 
 <h2 align="center" >About The Project</h2>

@@ -1,5 +1,4 @@
-streamlit==0.79.0
-numpy==1.19.2
-plotly==4.14.3
-scipy==1.5.2
-click==8.0.4
+pandas==1.5.2
+Requests==2.28.2
+streamlit==1.17.0
+streamlit_lottie==0.0.3

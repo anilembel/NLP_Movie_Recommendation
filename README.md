@@ -1,8 +1,10 @@
 
-<h1 align="center">NLP Project in our AI specialization at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h1><br><br>
+<h1 align="center">NLP Project in our AI specialization at <a href="https://github.com/becodeorg"><strong>BeCode</strong></a></h1>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-## Description
+
+<h3 align="center"> Description  </h3>  
+
 Link Of the App : https://anilembel-nlp-movie-recommendation-app-21t86r.streamlit.app/
 
 Certainly, here's the text version of your project description:
@@ -20,16 +22,18 @@ Finally, for a movie the user watched, the system calculated similarity scores b
 All of these processes have an important role in the content-based recommendation system and can be used to provide personalized recommendations to users based on their interests.
 
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## Recommendations Part 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+<h3 align="center"> Recommendations Part  </h3>  
+
 
 It gives you the recommendations of the films with the closest score between 1-5 with the Model I have installed.
    
-
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## Analysis Part 
+<h3 align="center"> Analysis Part  </h3>  
+
+
 
 <p>
     I have prepared a dashboard using the latest Tableau that allows you to explore more information about a selected movie. The dashboard includes:

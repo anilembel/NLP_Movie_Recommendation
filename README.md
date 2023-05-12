@@ -7,7 +7,6 @@
 
 Link Of the App : https://anilembel-nlp-movie-recommendation-app-21t86r.streamlit.app/
 
-Certainly, here's the text version of your project description:
 
 Hello I am Anil, This is the project that my education in the field of NLP, which was given to me during the Becode Training process.
 

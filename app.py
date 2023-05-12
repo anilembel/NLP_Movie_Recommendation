@@ -32,20 +32,21 @@ def get_recommendations(df, searchterm, num_rec):
     if searchterm not in df['title'].unique():
         return "Movie not found. Please check your spelling."
 
-    # searchterm ile verilen filmin id'sini alın
+    # taking id of the movie which has given by searchterm
     movie_id = df.loc[df['title'] == searchterm]['id'].values[0]
 
-    # movie_id ile verilen filmin benzer filmlerini getirin
+    # getting similar movies which has related with the given movie_id
     sim_movies = ['sim_movie_{}'.format(i) for i in range(1, num_rec+1)]
     sim_movies = df.loc[df['id'] == movie_id, sim_movies].values[0]
 
-    # benzer filmlerle ilgili bilgileri bir liste içinde toplayın
+    # related movie information in a list
     rec_movies = []
     for movie_id in sim_movies:
         movie_info = df.loc[df['id'] == movie_id]
         vote_average = movie_info['vote_average'].values[0]
         color = '#FF5733' if vote_average <= 4 else '#F5DA81' if vote_average <= 7 else '#32CD32'
         rec_movie = {'Title': movie_info['title'].values[0],
+                     'Owerview': movie_info['overview'].values[0],
                      'Language': movie_info['Language'].values[0],
                      'Vote Average': f'{vote_average:.1f}'}
         rec_movies.append(rec_movie)

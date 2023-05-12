@@ -3,6 +3,33 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+- Repository: `Recommender systems`
+- Type of Challenge: `Learning`
+- Duration: `8 days`
+- Development Deadline: `25/04/2023 4:30 PM`
+- Repo Deadline: `26/04/2023 12:30 PM`
+- Repo Presentations: `26/04/2023 1:30PM`
+- Challenge: Individual (or Team)
+
+## The data
+* [MovieLens](https://grouplens.org/datasets/movielens/). A subset of this data can be found in [Kaggle](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset).
+* IMDB provides a public dataset that can be used for this purpose: [IMDB dataset](https://www.imdb.com/interfaces/). You can also decide to scrape your own data or supplement it with other sources.  **Note**: File sizes are large. 
+
+### Mission objective:
+As data analysts, my goal is to create a dashboard where the user will get recommendations based on a selected movie and also be able to see some relevant features these movie share. 
+
+* Implement TD-IDF and cosine similarity to determine the Top 5 similar movies for each movie in Python. 
+* Use your script in PowerBI Desktop to include your results in your data source.
+* Create a dashboard that includes relevant information about the movie and general statistics about the movies recommended. You might want to take a look to [this example](https://community.powerbi.com/t5/Data-Stories-Gallery/Netflix-Movie-and-TV-Analytics/m-p/1807912) for inspiration.
+* The visuals you include in your dashboard should tell a story (i.e. figures included should have add value to your dashboard)
+
+At the end you should be able to:
+* Explain which NLP methods can be used to compute similarities between texts (i.e. TD-IDF, cosine-similarity,  etc.) and how they work in the big picture.
+* Explain each of the visuals included in your dashboard (what does it tell the user? why is the visual the most appropiate?) 
+* Know how to implement a Python script into PowerBI and be familiar with the it's main features (interactive plots)
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+    
 <h3 align="center"> Description  </h3>  
 
 Link Of the App : https://anilembel-nlp-movie-recommendation-app-21t86r.streamlit.app/

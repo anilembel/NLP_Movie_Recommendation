@@ -62,14 +62,16 @@ def get_recommendations(df, searchterm, num_rec):
     for rec_movie in rec_movies:
         st.image(
             'https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png')
-        st.write(f"""<h3  style='font-family:Netflix Sans; color:Black; font-size: 24 px;'>{i}-{rec_movie['Title']}</h3>""",
+
+        st.write(f"""<h2 style='font-family:Netflix Sans; color:Black; font-size: 20 px;'>{i}-{rec_movie['Title']}</h2>""",
+                 unsafe_allow_html=True)
+        st.write(f"""<p style='font-family:arial; color:black; font-size: 14 px;'>  <strong> Overwiev: </strong>  {rec_movie['Owerview']}</p>""",
                  unsafe_allow_html=True)
         st.write(f"""<h3 style='font-family:Netflix Sans; color:black; font-size: 18 px;'> Language: {rec_movie['Language']}</h3>""",
                  unsafe_allow_html=True)
-        st.write(f"""<h3 style='font-family:Netflix Sans; color:red; font-size: 18 px;'> Vote: {rec_movie['Vote Average']}</h3>""",
+        st.write(f"""<h3 style='font-family:Netflix Sans; color:red; font-size: 18 px;'> Vote: <span style='color:red'>{rec_movie['Vote Average']}</span></h3>""",
                  unsafe_allow_html=True)
         i = i + 1
-
 # main
 
 
@@ -93,31 +95,26 @@ def main():
             'https://assets1.lottiefiles.com/private_files/lf30_F6EtR7.json')
         st_lottie(netflix, key='netflix', width=1350, height=500)
         st.header('About The Project')
-        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Hello I'am Anil, This is the project that my education in the field of NLP, which was given to me during the Becode Training process.</h3>",
-                 unsafe_allow_html=True)
-        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>I have completed my work on the content-based recommendation system and wehave achieved successful results on a movie dataset of 45 K  data. This system is an artificial intelligence model that can be used toprovide personalized recommendations to users.</h3>",
-                 unsafe_allow_html=True)
-        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>First of all, preprocessing steps such as cleaning the text data in the data set of the movies and tokenization were carried out. Thanks to these steps, keywords were determined for the movies.</h3>",
-                 unsafe_allow_html=True)
-        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Then, the importance degrees of the keywords were calculated by TF-IDF method. In this way, similarity scores between films could be calculated by determining the keywords of each film.</h3>",
-                 unsafe_allow_html=True)
-        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Finally, for a movie the user watched, the system calculated similarity scores by comparing it with other movies, and the movies with the highest similarity scores were recommended assuming they had similar characteristics to the movie the user was watching.</h3>",
-                 unsafe_allow_html=True)
-        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>All of these processes have an important role in the content-based recommendation system and can be used to provide personalized recommendations to users based on their interests.</h3>",
-                 unsafe_allow_html=True)
+        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Hello I'am Anil, This is the project that my education in the field of NLP, which was given to me during the Becode Training process.</h3>", unsafe_allow_html=True)
+        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>I have completed my work on the content-based recommendation system and we have achieved successful results on a movie dataset of 45 K  data. This system is an artificial intelligence model that can be used to provide personalized recommendations to users.</h3>", unsafe_allow_html=True)
+        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>First of all, preprocessing steps such as cleaning the text data in the data set of the movies and tokenization were carried out. Thanks to these steps, keywords were determined for the movies.</h3>", unsafe_allow_html=True)
+        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Then, the importance degrees of the keywords were calculated by TF-IDF method. In this way, similarity scores between films could be calculated by determining the keywords of each film.</h3>", unsafe_allow_html=True)
+        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Finally, for a movie the user watched, the system calculated similarity scores by comparing it with other movies, and the movies with the highest similarity scores were recommended assuming they had similar characteristics to the movie the user was watching.</h3>", unsafe_allow_html=True)
+        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>All of these processes have an important role in the content-based recommendation system and can be used to provide personalized recommendations to users based on their interests.</h3>", unsafe_allow_html=True)
+
         st.subheader('Recommendations')
-        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>It gives you the recommendations of the films with the closest score between 1-5 with the Model I have installed.</h3>",
-                 unsafe_allow_html=True)
+        st.write("<h6 style='font-family:Netflix Sans; color:black; font-size: 18px;'>It gives you the recommendations of the films with the closest score between 1-5 with the Model I have installed.</h6>", unsafe_allow_html=True)
+
         st.subheader('Analysis')
-        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>I have prepared a dashboard where you can get more information about the movie you selected by visualizing this data with the latest Tableau. On he Dashboard:</h3>",
+        st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>I have prepared a dashboard where you can get more information about the movie you selected by visualizing this data with the latest Tableau. On the Dashboard:</h3>", unsafe_allow_html=True)
+        st.write("<h6 style='font-family:Netflix Sans; color:black; font-size: 18px;'>4 Movie recommendations</h6>", unsafe_allow_html=True)
+        st.write("<h6 style='font-family:Netflix Sans; color:black; font-size: 18px;'>The Language of the Movie</h6>", unsafe_allow_html=True)
+        st.write("<h6 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Average Review Score</h6>",
                  unsafe_allow_html=True)
-        st.write("<h6>4 Movie recommendations</h2>", unsafe_allow_html=True)
-        st.write("<h6>The Language of the Movie</h2>", unsafe_allow_html=True)
-        st.write("<h6>Average Review Score</h2>", unsafe_allow_html=True)
-        st.write("<h6>Genre of the movie</h2>", unsafe_allow_html=True)
-        st.write("<h6>Producer Company of the Film</h2>",
+        st.write("<h6 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Genre of the movie</h6>",
                  unsafe_allow_html=True)
-        st.write("<h6>The Time of Release of the Movie in the Cinema</h2>",
+        st.write("<h6 style='font-family:Netflix Sans; color:black; font-size: 18px;'>Producer Company of the Film</h6>", unsafe_allow_html=True)
+        st.write("<h6>The Time of Release of the Movie in the Cinema</h6>",
                  unsafe_allow_html=True)
         st.write("<h6>Movie Release Date</h2>", unsafe_allow_html=True)
         st.write("<h3 style='font-family:Netflix Sans; color:black; font-size: 18px;'>You can learn about the information visually at a glance.</h3>",
